@@ -47,7 +47,7 @@ module.exports = function(passport){
                         var newUser = new User();
                         //set user credentials
                         newUser.local.email = email;
-                        newUser.local.password = newUser.genereateHash(password);
+                        newUser.local.password = newUser.generateHash(password);
 
                         newUser.save(function(err){
                             if(err){
@@ -61,4 +61,9 @@ module.exports = function(passport){
 
 
     }));
+
+    //Local Login
+    passport.use('local-login', new LocalStrategy({
+
+    }))
 };

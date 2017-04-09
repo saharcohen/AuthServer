@@ -17,7 +17,7 @@ var session = require('express-session');
 var configDB = require('./config/database');
 
 // Configuration ====================================================================
-//mongoose.connect(configDB.url);
+mongoose.connect(configDB.url);
 
 
 // set up our express application
@@ -35,6 +35,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
  // Routes ========================================
  require('./app/routes.js')(app,passport);
+ require('./config/passport')(passport);
+
 
  // launch
  app.listen(port);

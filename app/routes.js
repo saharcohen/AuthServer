@@ -22,7 +22,11 @@ module.exports = function(app,passport){
     });
 
     //process the signup page
-    //app.post('/signup',do all our passport stuff here);
+    app.post('/signup',passport.authenticate('local-signup', {
+        successRedirect : '/profile',
+        failureRedirect : '/signup',
+        failureFlash : true
+    }));
 
     // Profile Section
     // protected - have to login to see this
