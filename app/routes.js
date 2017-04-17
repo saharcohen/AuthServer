@@ -27,7 +27,12 @@ module.exports = function(app,passport){
         failureRedirect : '/signup',
         failureFlash : true
     }));
-
+    //login form process
+    app.post('/login',passport.authenticate('local-login', {
+        successRedirect : '/profile',
+        failureRedirect : '/login',
+        failureFlash : true
+    }));
     // Profile Section
     // protected - have to login to see this
     // use remote middlewaree to verify
